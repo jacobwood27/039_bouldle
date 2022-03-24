@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Bouldle</title>
+	<link rel="stylesheet" type="text/css" href="select2.min.css">
+	<link rel="stylesheet" href="style.css">
+	<script src="jquery351.min.js"></script>
+	<script src="select2.min.js"></script>
+	<script src="stats.js"></script>
+	<script src="order.js"></script>
+	<script async src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-KKPMQJRGVH"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'G-KKPMQJRGVH');
+	</script>
+</head>
+
+<body>
+	<canvas id="canvas" style=" pointer-events:none;"></canvas>	
+	<div class="content-wrapper">
+		<div style="text-align:center; position:relative;">
+			<div style="height:400px; width:100%;"></div>
+			<iframe id="iframeee" width="400" height="400" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="visibility:hidden; position:absolute; top:0; left:50%; transform: translate(-50%, 0%);"></iframe>
+
+			<video playsinline loop muted autoplay controls id="video_container" style="position:absolute; top:0; left:50%; transform: translate(-50%, 0%); z-index:1">
+				<source type="video/webm; codecs=vp9,vorbis" id="video_webm">
+				<source type="video/mp4" id="video_mp4">
+				It looks like your browser does not support HTML5 video.
+			</video>
+
+		</div>
+		<div style="text-align:center; margin:5px">
+			<label ID="whoseLabel">What climb is this?</label>
+		</div>
+		<div style="text-align:center; width:300px; margin: 0 auto;">
+			<form style=" margin: 5px auto;">
+				<select name="personGuess" id="personGuess" style='text-align:center;width:300px'>
+					<option disabled selected hidden value> -- select an option -- </option>
+				</select>
+			</form>
+			<button type="button" class="collapsible" id="PrevButton" style="float: left; visibility: hidden;">Prev</button>
+			<button type="button" id="hintbutton" class="collapsible">Hint</button>
+			<button type="button" id="collapsible" class="collapsible" style="text-align:center;">Info</button>
+			<div class="content" ;
+			style="z-index:10; text-align:center; top:5px; left:50%; transform: translate(-50%, 0%);" onclick="togglecollapse()">
+			<div>
+				<p style="margin-bottom: 2px; font-weight:bold; margin-top: 0px">How to Play</p>
+				<p style="margin-bottom: 2px; margin-top: 2px;">You have 6 guesses to identify the mystery climb
+				</p>
+				<p style="margin-bottom: 2px; margin-top: 2px;">Use a hint to show the silhouette uncovering some context
+				</p>
+				<p style="margin-bottom: 2px; margin-top: 2px;">There is a new puzzle every day
+				</p>
+			</div>
+			<div>
+				<p style="margin-bottom: 2px; font-weight:bold">Colors</p>
+				<p
+					style="text-align:center;margin-bottom: 2px; margin-top: 2px; background-color: #008450; color:white">
+					Within
+					1% or same year/country</p>
+				<p
+					style="text-align:center;margin-bottom: 2px; margin-top: 2px; background-color: #EFB700; color:white">
+					Within
+					3% or 5 years</p>
+				<p
+					style="text-align:center;margin-bottom: 2px; margin-top: 2px; background-color: #B81D13; color:white">
+					Greater
+					than 3% or 5 years</p>
+			</div>
+			<div>
+				<p style="margin-bottom: 2px; font-weight:bold">Arrows</p>
+				<p style="margin-bottom: 2px; margin-top: 2px;">⬆ = Mystery athlete's number is larger (slower, younger)
+				</p>
+				<p style="margin-bottom: 2px; margin-top: 2px;">⬇ = Mystery athlete's number is smaller (faster, older)
+				</p>
+			</div>
+			<div>
+				<p style="margin-bottom: 2px; font-weight:bold;">Data</p>
+				<p style="margin-bottom: 2px; margin-top: 2px;">All data is collected from <a
+						href="https://www.mountainproject.com/" target="_blank">mountainproject.com</a>
+				</p>
+				<p style="margin-bottom: 2px; margin-top: 2px;"><a
+					href="https://www.mountainproject.com/route-finder?selectedIds=0&type=boulder&diffMinrock=1800&diffMinboulder=20000&diffMinaid=70000&diffMinice=30000&diffMinmixed=50000&diffMaxrock=5500&diffMaxboulder=21700&diffMaxaid=75260&diffMaxice=38500&diffMaxmixed=60000&is_trad_climb=1&is_sport_climb=1&is_top_rope=1&stars=3.8&pitches=0&sort1=popularity+desc&sort2=rating" target="_blank">Top 1000 most popular boulder routes</a> included</p>
+			</div>
+			<div>
+				<p style="margin-bottom: 2px; font-weight:bold;">Credit</p>
+				<p style="margin-bottom: 2px; margin-top: 2px;">Pixel segmentation performed with <a href="https://hkchengrex.github.io/MiVOS/" target="_blank">MiVOS</a> and <a href="https://github.com/hkchengrex/STCN" target="_blank">STCN</a></p>
+				<p style="margin-bottom: 2px; margin-top: 2px;">Built by <a href="https://jacobw.xyz/" target="_blank">Jacob Wood</a>. Here is the <a href="https://github.com/jacobwood27/037_stridle" target="_blank">code</a> and a <a href="https://jacobw.xyz/projects/stridle/" target="_blank">blog post</a></p>
+			</div>
+			<div>
+				<p style="margin-bottom: 2px; color:darkgray">Click to close</p>
+			</div>
+		</div>
+		<button type="button" class="collapsible" id="NextButton" style="float: right; visibility: hidden;">Next</button>
+		</div>
+		<div style="text-align:center">
+			<table id="ResultsTable" style="text-align:center; width:100%; margin:5px; font-weight:bold;">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Rating</th>
+						<th>Distance Away</th>
+					</tr>
+				</thead>
+				<tbody class="trows">
+					<tr style="border-top:10px solid #ffffff; border-bottom:0px solid #ffffff;">
+					  <td></td>
+					  <td></td>
+					  <td></td>
+					</tr>
+					<tr style="border-top:0px solid #ffffff;">
+						<td colspan="3" style="font-weight:normal;"></td>
+					</tr>
+					<tr style="border-top:10px solid #ffffff; border-bottom:0px solid #ffffff;">
+						<td></td>
+						<td></td>
+						<td></td>
+					  </tr>
+					  <tr style="border-top:0px solid #ffffff;">
+						  <td colspan="3" style="font-weight:normal;"></td>
+					  </tr>
+					  <tr style="border-top:10px solid #ffffff; border-bottom:0px solid #ffffff;">
+						<td></td>
+						<td></td>
+						<td></td>
+					  </tr>
+					  <tr style="border-top:0px solid #ffffff;">
+						  <td colspan="3" style="font-weight:normal;"></td>
+					  </tr>
+					  <tr style="border-top:10px solid #ffffff; border-bottom:0px solid #ffffff;">
+						<td></td>
+						<td></td>
+						<td></td>
+					  </tr>
+					  <tr style="border-top:0px solid #ffffff;">
+						  <td colspan="3" style="font-weight:normal;"></td>
+					  </tr>
+					  <tr style="border-top:10px solid #ffffff; border-bottom:0px solid #ffffff;">
+						<td></td>
+						<td></td>
+						<td></td>
+					  </tr>
+					  <tr style="border-top:0px solid #ffffff;">
+						  <td colspan="3" style="font-weight:normal;"></td>
+					  </tr>
+					  <tr style="border-top:10px solid #ffffff; border-bottom:0px solid #ffffff;">
+						<td></td>
+						<td></td>
+						<td></td>
+					  </tr>
+					  <tr style="border-top:0px solid #ffffff;">
+						  <td colspan="3" style="font-weight:normal;"></td>
+					  </tr>
+				  </tbody>
+			</table>
+		</div>
+
+		<div style="text-align:center;  margin: 5px auto; font-weight:bolder" id="outcomeMessage">
+		</div>
+		<div style="text-align:justify; margin: 5 px auto;" id="winMessage">
+		</div>
+		<br>
+		<div id="chartcontainer" style="display: flex; width:100%; height:300px; flex: 1 1 auto;">
+			<canvas id="myChart" width="100%" height="100%" style="position:absolute; z-index:1"></canvas>
+		</div>
+		<div>
+			
+		</div>
+	</div>
+</body>
+
+</html>
+<script>
+
+	function getDistanceFromLatLonInMi(lat1,lon1,lat2,lon2) {
+		var R = 3960; // Radius of the earth in km
+		var dLat = deg2rad(lat2-lat1);  // deg2rad below
+		var dLon = deg2rad(lon2-lon1); 
+		var a = 
+		  Math.sin(dLat/2) * Math.sin(dLat/2) +
+		  Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+		  Math.sin(dLon/2) * Math.sin(dLon/2)
+		  ; 
+		var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+		var d = R * c; // Distance in km
+		return d;
+	}
+
+	function getHeadingFromLatLon(lat1,lon1,lat2,lon2) {
+		var dLon = deg2rad(lon2-lon1); 
+		var y = Math.sin(dLon) * Math.cos(deg2rad(lat2));
+		var x = Math.cos(deg2rad(lat1))*Math.sin(deg2rad(lat2)) - Math.sin(deg2rad(lat1))*Math.cos(deg2rad(lat2))*Math.cos(dLon);
+		var θ = Math.atan2(y, x);
+		var brng = (θ*180/Math.PI + 360) % 360; // in degrees
+		return brng;
+	}
+	  
+	function deg2rad(deg) {
+		return deg * (Math.PI/180)
+	}
+
+	$(document).ready(function () {
+
+		var POTD;
+		var dat = {};
+
+		var graph_dat = [0,0,0,0,0,0,0];
+
+		var num_plays = 0;
+
+		var canvas = document.getElementById("myChart");
+		canvas.width = $("#chartcontainer").width();
+		canvas.height = $("#chartcontainer").height();
+
+		var startDate  = new Date('2022-03-23');
+		const today      = new Date();
+		const offset = startDate.getTimezoneOffset();
+		var startmidnight = new Date(startDate.getTime() + offset*60*1000);
+
+		const diffInMs   = today - startmidnight;
+		const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
+
+		var which_day = Math.floor(diffInDays) % order.length;
+		const last_day = which_day;
+
+		const nextbutton = document.getElementById('NextButton');
+		const prevbutton = document.getElementById('PrevButton');
+
+		const winmess = document.getElementById('winMessage');
+
+		const video_container = document.getElementById('video_container');
+		const video_mp4  = document.getElementById('video_mp4');
+		const video_webm = document.getElementById('video_webm');
+
+		var table = document.getElementById("ResultsTable");
+
+		const urlParams = new URLSearchParams(location.search);
+
+		if (urlParams.has('day')){
+			const urlWhichday = parseInt(urlParams.get('day'));
+			if (!isNaN(urlWhichday) && urlWhichday >= 0 && urlWhichday <= last_day) {
+				which_day = urlWhichday;
+			} 
+		}
+
+		if (which_day < last_day){
+			function f() {
+				window.location.href = "/?day=" + (which_day+1).toString();
+			}
+			nextbutton.onclick = f;
+			nextbutton.style.visibility = "visible";
+		}
+		if (which_day > 0){
+			function f() {
+				window.location.href = "/?day=" + (which_day-1).toString();
+			}
+			prevbutton.onclick = f;
+			prevbutton.style.visibility = "visible";
+		}
+
+		const IDOTD = order[which_day];
+
+		video_mp4.src  = 'vids/' + IDOTD.toString() + '/hidden.mp4';
+		video_webm.src = 'vids/' + IDOTD.toString() + '/hidden.webm';
+		video_container.load();
+		
+
+
+		async function get_dp(s){
+			return new Promise(function (resolve, reject) {
+				var xhr = new XMLHttpRequest();
+				xhr.open("GET", "https://api.countapi.xyz/get/bouldle.xyz/" + IDOTD.toString() + "-" + s);
+				xhr.responseType = "json";
+				xhr.onload = function () {
+					var status = xhr.status;
+					if (status == 200) {
+						resolve(this.response.value);
+					} else {
+						resolve(0);
+					}
+				};
+				xhr.send();
+			});
+		}
+	
+		async function get_chart_data(){
+			let d = [	await get_dp("1"), 
+						await get_dp("2"),
+						await get_dp("3"),
+						await get_dp("4"),
+						await get_dp("5"),
+						await get_dp("6"),
+						await get_dp("dnf")]
+			return d;
+		}
+		
+
+		$('#hintbutton').on('click', function () {
+			video_container.classList.add("active-animation");
+			video_mp4.src  = 'vids/' + IDOTD.toString() + '/hint.mp4';
+			video_webm.src = 'vids/' + IDOTD.toString() + '/hint.webm';
+			video_container.load();
+			document.getElementById("hintbutton").style.display = "none";
+		});
+
+		$("#personGuess").select2();
+
+		for (var d in stats) {
+			var newOption = new Option(stats[d]["Name"], stats[d]["ID"], false, false);
+			$('#personGuess').append(newOption).trigger('change');
+		}
+			
+		var cur_row = 0
+		let barchart = make_bar(get_chart_data());
+
+		COTD = stats[IDOTD];
+
+		$('#personGuess').on('select2:select', function (e) {
+			cur_row = cur_row + 1
+
+			if (cur_row == 1) {
+				$.getJSON("https://api.countapi.xyz/hit/bouldle.xyz/" + IDOTD.toString() , function(response) {
+					num_plays = response.value;
+					console.log(num_plays);
+				});
+			}
+
+			guess = stats[e.params.data.id];
+
+			var row = table.rows[cur_row];//insertRow();
+			row.cells[0].innerHTML = guess.Name;
+
+			if (guess.Rating > COTD.Rating) {
+				row.cells[1].innerHTML = "V" + guess.Rating.toString() + "<br/>" + "↓";
+			} else if (guess.Rating < COTD.Rating) {
+				row.cells[1].innerHTML = "V" + guess.Rating.toString() + "<br/>" + "↑";
+			} else {
+				row.cells[1].innerHTML = "V" + guess.Rating.toString();
+			}
+			if (guess.Rating - COTD.Rating == 0) {
+				row.cells[1].style.backgroundColor = "#008450";
+				row.cells[1].style.color = "white";
+			} else if (Math.abs(guess.Rating - COTD.Rating) == 1) {
+				row.cells[1].style.backgroundColor = "#EFB700";
+				row.cells[1].style.color = "white";
+			} else {
+				row.cells[1].style.backgroundColor = "#B81D13";
+				row.cells[1].style.color = "white";
+			}
+
+			var dist = Math.round(getDistanceFromLatLonInMi(COTD.Lat,COTD.Lon,guess.Lat,guess.Lon));
+			var brng = getHeadingFromLatLon(guess.Lat,guess.Lon,COTD.Lat,COTD.Lon);
+			arrow = "↑"
+			if (brng < 45 + 22.5) {
+				arrow = "↗"
+			} else if (brng < 45 + 22.5) {
+				arrow = "→"
+			} else if (brng < 90 + 22.5) {
+				arrow = "↘"
+			} else if (brng < 135 + 22.5) {
+				arrow = "↓"
+			} else if (brng < 180 + 22.5) {
+				arrow = "↙"
+			} else if (brng < 225 + 22.5) {
+				arrow = "←"
+			} else if (brng < 270 + 22.5) {
+				arrow = "↖"
+			} 
+
+			if (dist > 0) { 
+				row.cells[2].innerHTML = dist.toString() + " mi<br/>" + arrow;
+			} else {
+				row.cells[2].innerHTML = dist.toString() + " mi<br/> ";
+			}
+
+			if (dist < 10) {
+				row.cells[2].style.backgroundColor = "#008450";
+				row.cells[2].style.color = "white";
+			} else if (dist < 100) {
+				row.cells[2].style.backgroundColor = "#EFB700";
+				row.cells[2].style.color = "white";
+			} else {
+				row.cells[2].style.backgroundColor = "#B81D13";
+				row.cells[2].style.color = "white";
+			}
+
+			if (guess.ID == COTD.ID) {
+				row.cells[0].style.backgroundColor = "#008450";
+				row.cells[0].style.color = "white";
+			}
+
+			cur_row = cur_row + 1
+			row = table.rows[cur_row];//insertRow();
+			var s = "";
+			var count = 0
+			for (const l of guess.Location) {
+				if (count<COTD.Location.length && l==COTD.Location[count]) {
+					s += "<span style=\"color: #008450\">" + l + "</span>";
+				} else {
+					s += "<span style=\"color: #B81D13\">" + l + "</span>";
+				}
+				s += " > "
+				count += 1
+			} 
+			s = s.slice(0, -3);
+			table.rows[cur_row].cells[0].innerHTML = s;
+
+
+
+			//var cur_cell = -1;
+			//for (const f of fields) {
+			//	cur_cell = cur_cell + 1;
+			//	var cell = row.cells[cur_cell];
+			//	var value = guess[f];
+			//	if (typeof value === 'number' && f != "BirthYear") {
+			//		if (value > 0.1) {
+			//			if (value < POTD[f]) {
+			//				cell.innerHTML = ("").concat(fancyTimeFormat(value), "<br />⬆");
+			//			} else if (value > POTD[f] && POTD[f] > 0.1) {
+			//				cell.innerHTML = ("⬇<br />").concat(fancyTimeFormat(value), "");
+			//			} else {
+			//				cell.innerHTML = fancyTimeFormat(value);
+			//			}
+			//			if (POTD[f] > 0.1) {
+			//				if (Math.abs((POTD[f] - value) / value) < 0.01) {
+			//					cell.style.backgroundColor = "#008450";
+			//					cell.style.color = "white";
+			//				} else if (Math.abs((POTD[f] - value) / value) < 0.03) {
+			//					cell.style.backgroundColor = "#EFB700";
+			//					cell.style.color = "white";
+			//				} else {
+			//					cell.style.backgroundColor = "#B81D13";
+			//					cell.style.color = "white";
+			//				}
+			//			}
+			//		}
+			//	} else if (f == "BirthYear") {
+			//		cell.innerHTML = value;
+			//		if (value < POTD[f]) {
+			//			cell.innerHTML = ("").concat(value, "<br />⬆");
+			//		} else if (value > POTD[f]) {
+			//			cell.innerHTML = ("⬇<br />").concat(value, "");
+			//		} else {
+			//			cell.innerHTML = value;
+			//		}
+			//		if (POTD[f] > 0.1) {
+			//			if (Math.abs(POTD[f] - value) < 1) {
+			//				cell.style.backgroundColor = "#008450";
+			//				cell.style.color = "white";
+			//			} else if (Math.abs(POTD[f] - value) < 6) {
+			//				cell.style.backgroundColor = "#EFB700";
+			//				cell.style.color = "white";
+			//			} else {
+			//				cell.style.backgroundColor = "#B81D13";
+			//				cell.style.color = "white";
+			//			}
+			//		}
+			//	} else if (f == "Country" || f == "Name") {
+			//		cell.innerHTML = value;
+			//		if (POTD[f] == value) {
+			//			cell.style.backgroundColor = "#008450";
+			//			cell.style.color = "white";
+			//		}
+			//	} else {
+			//		cell.innerHTML = value;
+			//	}
+			//}
+
+			if (IDOTD == e.params.data.id) {
+				video_container.style.display = "none";
+				//video_container.classList.add("active-animation");
+				//video_mp4.src  = 'vids/' + IDOTD.toString() + '/reveal.mp4';
+				//video_webm.src = 'vids/' + IDOTD.toString() + '/reveal.webm';
+				//video_container.innerHTML  += "It looks like your browser does not support HTML5 video. You can find the reveal <a href=\"https://stridle.xyz/vids/" + IDOTD.toString() + "/reveal.mp4\">here</a>."
+				//video_container.load();
+				document.getElementById("iframeee").classList.add("active-animation");
+				document.getElementById("iframeee").width = COTD.video.width;
+				document.getElementById("iframeee").src   = COTD.video.src;
+				document.getElementById("iframeee").style.visibility = "visible";
+				
+
+				winmess.innerHTML = POTD["message"];
+				document.getElementById("whoseLabel").style.display = "none";
+				document.getElementById("outcomeMessage").innerHTML = "That's it, well done!"
+				$("#personGuess").next().hide();
+				document.getElementById("hintbutton").style.display = "none";
+				make_confetti();
+				
+				barchart.then(function(chart) {
+					chart.data.datasets[0].data[cur_row-1] = chart.data.datasets[0].data[cur_row-1] + 1
+					chart.data.datasets[0].backgroundColor[cur_row-1] = "#5D3FD3";
+					chart.update();
+				});
+				
+
+				$.getJSON("https://api.countapi.xyz/hit/bouldle.xyz/" + IDOTD.toString() + "-" + cur_row.toString(), function(response) {
+					console.log(response);
+				});
+
+			} else if (cur_row == 6){
+				video_container.classList.add("active-animation");
+				video_mp4.src  = 'vids/' + IDOTD.toString() + '/reveal.mp4';
+				video_webm.src = 'vids/' + IDOTD.toString() + '/reveal.webm';
+				video_container.load();
+
+				document.getElementById("hintbutton").style.display = "none";
+				document.getElementById("outcomeMessage").innerHTML = "Not quite. It was " + POTD["Name"] + ". Maybe next time! <br/> "
+				winmess.innerHTML = POTD["message"];
+				document.getElementById("whoseLabel").style.display = "none";
+				$("#personGuess").next().hide();
+
+				barchart.then(function(chart) {
+					chart.data.datasets[0].data[6] = chart.data.datasets[0].data[6] + 1
+					chart.data.datasets[0].backgroundColor[6] = "#5D3FD3";
+					chart.update();
+				});
+
+				$.getJSON("https://api.countapi.xyz/hit/bouldle.xyz/" + IDOTD.toString() + "-dnf", function(response) {
+					console.log(response);
+				});
+			} 
+
+			//$("#personGuess").val('').trigger('change');
+		});
+	});
+	
+
+	var coll = document.getElementById("collapsible");
+	function togglecollapse() {
+		coll.classList.toggle("active");
+		var content = coll.nextElementSibling;
+		if (content.style.display === "block") {
+			content.style.display = "none";
+		} else {
+			content.style.display = "block";
+		}
+	}
+	coll.addEventListener("click", togglecollapse);
+
+	function make_confetti() {
+		// ammount to add on each button press
+		const confettiCount = 100
+		const sequinCount = 0
+
+		// "physics" variables
+		const gravityConfetti = 0.3
+		const gravitySequins = 0.55
+		const dragConfetti = 0.075
+		const dragSequins = 0.02
+		const terminalVelocity = 3
+
+		// init other global elements
+		var disabled = false
+		const canvas = document.getElementById('canvas')
+		const ctx = canvas.getContext('2d')
+		canvas.width = window.innerWidth
+		canvas.height = window.innerHeight
+		let cx = ctx.canvas.width / 2
+		let cy = ctx.canvas.height / 2
+
+		// add Confetto/Sequin objects to arrays to draw them
+		let confetti = []
+		let sequins = []
+
+		// colors, back side is darker for confetti flipping
+		const colors = [
+		{ front : '#7b5cff', back: '#6245e0' }, // Purple
+		{ front : '#b3c7ff', back: '#8fa5e5' }, // Light Blue
+		{ front : '#5c86ff', back: '#345dd1' }  // Darker Blue
+		]
+
+		// helper function to pick a random number within a range
+		randomRange = (min, max) => Math.random() * (max - min) + min
+
+		// helper function to get initial velocities for confetti
+		// this weighted spread helps the confetti look more realistic
+		initConfettoVelocity = (xRange, yRange) => {
+		const x = randomRange(xRange[0], xRange[1])
+		const range = yRange[1] - yRange[0] + 1
+		let y = yRange[1] - Math.abs(randomRange(0, range) + randomRange(0, range) - range)
+		if (y >= yRange[1] - 1) {
+			// Occasional confetto goes higher than the max
+			y += (Math.random() < .25) ? randomRange(1, 3) : 0
+		}
+		return {x: x, y: -y}
+		}
+
+		// Confetto Class
+		function Confetto() {
+		this.randomModifier = randomRange(0, 99)
+		this.color = colors[Math.floor(randomRange(0, colors.length))]
+		this.dimensions = {
+			x: randomRange(5, 9),
+			y: randomRange(8, 15),
+		}
+		this.position = {
+			x: randomRange(canvas.width/2, canvas.width/2 ),
+			y: randomRange(300,400),
+		}
+		this.rotation = randomRange(0, 2 * Math.PI)
+		this.scale = {
+			x: 1,
+			y: 1,
+		}
+		this.velocity = initConfettoVelocity([-12, 12], [5, 15])
+		}
+		Confetto.prototype.update = function() {
+		// apply forces to velocity
+		this.velocity.x -= this.velocity.x * dragConfetti
+		this.velocity.y = Math.min(this.velocity.y + gravityConfetti, terminalVelocity)
+		this.velocity.x += Math.random() > 0.5 ? Math.random() : -Math.random()
+		
+		// set position
+		this.position.x += this.velocity.x
+		this.position.y += this.velocity.y
+
+		// spin confetto by scaling y and set the color, .09 just slows cosine frequency
+		this.scale.y = Math.cos((this.position.y + this.randomModifier) * 0.09)    
+		}
+
+		// Sequin Class
+		function Sequin() {
+		this.color = colors[Math.floor(randomRange(0, colors.length))].back,
+		this.radius = randomRange(1, 2),
+		this.position = {
+			x: randomRange(canvas.width/2 , canvas.width/2 ),
+			y: randomRange(100,200),
+		},
+		this.velocity = {
+			x: randomRange(-6, 6),
+			y: randomRange(-1, -10)
+		}
+		}
+		Sequin.prototype.update = function() {
+		// apply forces to velocity
+		this.velocity.x -= this.velocity.x * dragSequins
+		this.velocity.y = this.velocity.y + gravitySequins
+		
+		// set position
+		this.position.x += this.velocity.x
+		this.position.y += this.velocity.y   
+		}
+
+		// add elements to arrays to be drawn
+		initBurst = () => {
+		for (let i = 0; i < confettiCount; i++) {
+			confetti.push(new Confetto())
+		}
+		for (let i = 0; i < sequinCount; i++) {
+			sequins.push(new Sequin())
+		}
+		}
+
+		// draws the elements on the canvas
+		render = () => {
+		ctx.clearRect(0, 0, canvas.width, canvas.height)
+		
+		confetti.forEach((confetto, index) => {
+			let width = (confetto.dimensions.x * confetto.scale.x)
+			let height = (confetto.dimensions.y * confetto.scale.y)
+			
+			// move canvas to position and rotate
+			ctx.translate(confetto.position.x, confetto.position.y)
+			ctx.rotate(confetto.rotation)
+
+			// update confetto "physics" values
+			confetto.update()
+			
+			// get front or back fill color
+			ctx.fillStyle = confetto.scale.y > 0 ? confetto.color.front : confetto.color.back
+			
+			// draw confetto
+			ctx.fillRect(-width / 2, -height / 2, width, height)
+			
+			// reset transform matrix
+			ctx.setTransform(1, 0, 0, 1, 0, 0)
+		})
+
+		sequins.forEach((sequin, index) => {  
+			// move canvas to position
+			ctx.translate(sequin.position.x, sequin.position.y)
+			
+			// update sequin "physics" values
+			sequin.update()
+			
+			// set the color
+			ctx.fillStyle = sequin.color
+			
+			// draw sequin
+			ctx.beginPath()
+			ctx.arc(0, 0, sequin.radius, 0, 2 * Math.PI)
+			ctx.fill()
+
+			// reset transform matrix
+			ctx.setTransform(1, 0, 0, 1, 0, 0)
+
+		})
+
+		// remove confetti and sequins that fall off the screen
+		// must be done in seperate loops to avoid noticeable flickering
+		confetti.forEach((confetto, index) => {
+			if (confetto.position.y >= canvas.height) confetti.splice(index, 1)
+		})
+		sequins.forEach((sequin, index) => {
+			if (sequin.position.y >= canvas.height) sequins.splice(index, 1)
+		})
+
+		window.requestAnimationFrame(render)
+		}
+
+	// re-init canvas if the window size changes
+	resizeCanvas = () => {
+	canvas.width = window.innerWidth
+	canvas.height = window.innerHeight
+	cx = ctx.canvas.width / 2
+	cy = ctx.canvas.height / 2
+	}
+
+	// resize listenter
+	window.addEventListener('resize', () => {
+	resizeCanvas()
+	})
+
+
+	// kick off the render loop
+	window.initBurst()
+	render()
+}
+
+async function make_bar(dat){
+	d = await(dat)
+	const labels = ["1","2","3","4","5","6","DNF"];
+	const data = {
+		labels: labels,
+		datasets: [{
+			data: d,
+			backgroundColor: [
+				'#A9A9A9',
+				'#A9A9A9',
+				'#A9A9A9',
+				'#A9A9A9',
+				'#A9A9A9',
+				'#A9A9A9',
+				'#A9A9A9'
+			],
+		}]
+	};
+	const config = {
+		type: 'bar',
+		data: data,
+		options: {
+		  	scales: {
+				y: {
+					title: {
+						display: true,
+						text: "# People"
+					},
+					beginAtZero: true
+				},
+				x: {
+					title: {
+						display: true,
+						text: "# Guesses"
+					}
+				}
+			},
+			plugins: {
+				legend: {
+					display: false,
+				},
+				title: {
+					display: true,
+					text: 'This Bouldle\'s Results'
+				}
+			},
+		}
+	};
+	var myChart = new Chart(
+		document.getElementById('myChart'),
+		config
+	);
+	
+	return myChart;
+}
+
+</script>

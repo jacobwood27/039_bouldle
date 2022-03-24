@@ -1,0 +1,85 @@
+.content-wrapper {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 600px;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.active-animation {
+  animation-name: fadeIn ;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  0% {filter:opacity(0%);}
+  100% {filter:opacity(100%);}
+}
+
+.collapsible {
+  cursor: pointer;
+  text-align: center;
+  z-index: 5;
+}
+  
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+  text-align: center;
+}
+
+.content {
+  padding: 18px;
+  display: none;
+  overflow: hidden;
+  width: fit-content;
+  background-color: #f1f1f1;
+  position: absolute;
+}
+
+table{
+  border-collapse:collapse;
+  border:2px solid #ffffff;
+  background-color: #ccc;
+}
+    
+table td{
+  border:2px solid #ffffff;
+  min-width: 60px;
+}
+
+table th{
+  border:2px solid #ffffff;
+  min-width: 60px;
+}
+
+table tr{
+  border:2px solid #ffffff;
+  height: 40px;
+}
+
+.trows {
+  background-color: rgb(238, 238, 238);
+}
+
+@media (max-width: 960px) {
+  table {
+    display: block;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    margin: 0 auto;
+    overflow-x: auto;
+    /* white-space: nowrap; */
+  }
+}
+
+canvas {
+  height: 100vh;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+}
