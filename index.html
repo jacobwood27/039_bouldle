@@ -371,21 +371,21 @@
 
 			var dist = Math.round(getDistanceFromLatLonInMi(COTD.Lat,COTD.Lon,guess.Lat,guess.Lon));
 			var brng = getHeadingFromLatLon(guess.Lat,guess.Lon,COTD.Lat,COTD.Lon);
-			arrow = "↑"
+			arrow = "⬆️"
 			if (brng < 45 + 22.5) {
-				arrow = "↗"
+				arrow = "↗️"
 			} else if (brng < 45 + 22.5) {
-				arrow = "→"
+				arrow = "➡️"
 			} else if (brng < 90 + 22.5) {
-				arrow = "↘"
+				arrow = "↘️"
 			} else if (brng < 135 + 22.5) {
-				arrow = "↓"
+				arrow = "⬇️"
 			} else if (brng < 180 + 22.5) {
-				arrow = "↙"
+				arrow = "↙️"
 			} else if (brng < 225 + 22.5) {
-				arrow = "←"
+				arrow = "⬅️"
 			} else if (brng < 270 + 22.5) {
-				arrow = "↖"
+				arrow = "↖️"
 			} 
 
 			if (dist > 0) { 
