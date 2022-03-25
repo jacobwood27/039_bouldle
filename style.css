@@ -1,7 +1,7 @@
 .content-wrapper {
   margin-right: auto;
   margin-left: auto;
-  max-width: 600px;
+  max-width: 800px;
 }
 
 img {
@@ -66,16 +66,16 @@ table tr{
   background-color: rgb(238, 238, 238);
 }
 
-@media (max-width: 960px) {
+/* @media (max-width: 960px) {
   table {
     display: block;
     max-width: -moz-fit-content;
     max-width: fit-content;
     margin: 0 auto;
     overflow-x: auto;
-    /* white-space: nowrap; */
+    white-space: nowrap;
   }
-}
+} */
 
 canvas {
   height: 100vh;

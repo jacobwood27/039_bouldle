@@ -30,7 +30,7 @@
 			<div style="height:400px; width:100%;"></div>
 			<iframe id="iframeee" width="400" height="400" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="visibility:hidden; position:absolute; top:0; left:50%; transform: translate(-50%, 0%);"></iframe>
 
-			<video playsinline loop muted autoplay controls id="video_container" style="position:absolute; top:0; left:50%; transform: translate(-50%, 0%); z-index:1">
+			<video width="400" height="400" playsinline loop muted autoplay controls id="video_container" style="position:absolute; top:0; left:50%; transform: translate(-50%, 0%); z-index:1">
 				<source type="video/webm; codecs=vp9,vorbis" id="video_webm">
 				<source type="video/mp4" id="video_mp4">
 				It looks like your browser does not support HTML5 video.
@@ -64,22 +64,19 @@
 				<p style="margin-bottom: 2px; font-weight:bold">Colors</p>
 				<p
 					style="text-align:center;margin-bottom: 2px; margin-top: 2px; background-color: #008450; color:white">
-					Within
-					1% or same year/country</p>
+					Correct / Within 10 miles</p>
 				<p
 					style="text-align:center;margin-bottom: 2px; margin-top: 2px; background-color: #EFB700; color:white">
-					Within
-					3% or 5 years</p>
+					Within 100 miles</p>
 				<p
 					style="text-align:center;margin-bottom: 2px; margin-top: 2px; background-color: #B81D13; color:white">
-					Greater
-					than 3% or 5 years</p>
+					Incorrect / more than 100 miles away</p>
 			</div>
 			<div>
 				<p style="margin-bottom: 2px; font-weight:bold">Arrows</p>
-				<p style="margin-bottom: 2px; margin-top: 2px;">⬆ = Mystery athlete's number is larger (slower, younger)
+				<p style="margin-bottom: 2px; margin-top: 2px;">⬆ = Mystery climb's number is larger
 				</p>
-				<p style="margin-bottom: 2px; margin-top: 2px;">⬇ = Mystery athlete's number is smaller (faster, older)
+				<p style="margin-bottom: 2px; margin-top: 2px;">⬇ = Mystery climb's number is smaller
 				</p>
 			</div>
 			<div>
@@ -92,8 +89,8 @@
 			</div>
 			<div>
 				<p style="margin-bottom: 2px; font-weight:bold;">Credit</p>
-				<p style="margin-bottom: 2px; margin-top: 2px;">Pixel segmentation performed with <a href="https://hkchengrex.github.io/MiVOS/" target="_blank">MiVOS</a> and <a href="https://github.com/hkchengrex/STCN" target="_blank">STCN</a></p>
-				<p style="margin-bottom: 2px; margin-top: 2px;">Built by <a href="https://jacobw.xyz/" target="_blank">Jacob Wood</a>. Here is the <a href="https://github.com/jacobwood27/037_stridle" target="_blank">code</a> and a <a href="https://jacobw.xyz/projects/stridle/" target="_blank">blog post</a></p>
+				<p style="margin-bottom: 2px; margin-top: 2px;">Pixel masking performed with <a href="https://opencv.org/" target="_blank">OpenCV's</a> <a href="https://docs.opencv.org/4.x/de/de1/group__video__motion.html#gac9be925771f805b6fdb614ec2292006d" target="_blank">KNN BGS</a></p>
+				<p style="margin-bottom: 2px; margin-top: 2px;">Built by <a href="https://jacobw.xyz/" target="_blank">Jacob Wood</a>. Here is the <a href="https://github.com/jacobwood27/039_bouldle" target="_blank">code</a> and a <a href="https://jacobw.xyz/projects/stridle/" target="_blank">blog post</a></p>
 			</div>
 			<div>
 				<p style="margin-bottom: 2px; color:darkgray">Click to close</p>
@@ -116,7 +113,7 @@
 					  <td></td>
 					  <td></td>
 					</tr>
-					<tr style="border-top:0px solid #ffffff;">
+					<tr style="border-top:0px solid #ffffff;height:20px;">
 						<td colspan="3" style="font-weight:normal;"></td>
 					</tr>
 					<tr style="border-top:10px solid #ffffff; border-bottom:0px solid #ffffff;">
@@ -124,7 +121,7 @@
 						<td></td>
 						<td></td>
 					  </tr>
-					  <tr style="border-top:0px solid #ffffff;">
+					  <tr style="border-top:0px solid #ffffff;height:20px;">
 						  <td colspan="3" style="font-weight:normal;"></td>
 					  </tr>
 					  <tr style="border-top:10px solid #ffffff; border-bottom:0px solid #ffffff;">
@@ -132,7 +129,7 @@
 						<td></td>
 						<td></td>
 					  </tr>
-					  <tr style="border-top:0px solid #ffffff;">
+					  <tr style="border-top:0px solid #ffffff;height:20px;">
 						  <td colspan="3" style="font-weight:normal;"></td>
 					  </tr>
 					  <tr style="border-top:10px solid #ffffff; border-bottom:0px solid #ffffff;">
@@ -140,7 +137,7 @@
 						<td></td>
 						<td></td>
 					  </tr>
-					  <tr style="border-top:0px solid #ffffff;">
+					  <tr style="border-top:0px solid #ffffff;height:20px;">
 						  <td colspan="3" style="font-weight:normal;"></td>
 					  </tr>
 					  <tr style="border-top:10px solid #ffffff; border-bottom:0px solid #ffffff;">
@@ -148,7 +145,7 @@
 						<td></td>
 						<td></td>
 					  </tr>
-					  <tr style="border-top:0px solid #ffffff;">
+					  <tr style="border-top:0px solid #ffffff;height:20px;">
 						  <td colspan="3" style="font-weight:normal;"></td>
 					  </tr>
 					  <tr style="border-top:10px solid #ffffff; border-bottom:0px solid #ffffff;">
@@ -156,7 +153,7 @@
 						<td></td>
 						<td></td>
 					  </tr>
-					  <tr style="border-top:0px solid #ffffff;">
+					  <tr style="border-top:0px solid #ffffff;height:20px;">
 						  <td colspan="3" style="font-weight:normal;"></td>
 					  </tr>
 				  </tbody>
@@ -164,8 +161,6 @@
 		</div>
 
 		<div style="text-align:center;  margin: 5px auto; font-weight:bolder" id="outcomeMessage">
-		</div>
-		<div style="text-align:justify; margin: 5 px auto;" id="winMessage">
 		</div>
 		<br>
 		<div id="chartcontainer" style="display: flex; width:100%; height:300px; flex: 1 1 auto;">
@@ -234,8 +229,6 @@
 		const nextbutton = document.getElementById('NextButton');
 		const prevbutton = document.getElementById('PrevButton');
 
-		const winmess = document.getElementById('winMessage');
-
 		const video_container = document.getElementById('video_container');
 		const video_mp4  = document.getElementById('video_mp4');
 		const video_webm = document.getElementById('video_webm');
@@ -267,11 +260,29 @@
 		}
 
 		const IDOTD = order[which_day];
+		COTD = stats[IDOTD];
 
 		video_mp4.src  = 'vids/' + IDOTD.toString() + '/hidden.mp4';
 		video_webm.src = 'vids/' + IDOTD.toString() + '/hidden.webm';
 		video_container.load();
 		
+		var ev_w = COTD.video.w;
+		var ev_h = COTD.video.h;
+
+		if (ev_w > window.innerWidth) {
+			ev_w = window.innerWidth;
+			ev_h = Math.round(COTD.video.h * ev_w / COTD.video.w);
+		} else {
+			ev_h = 400;
+			ev_w = Math.round(COTD.video.w * ev_h / COTD.video.h);
+			if (ev_w > window.innerWidth) {
+				ev_w = window.innerWidth;
+				ev_h = Math.round(COTD.video.h * ev_w / COTD.video.w);
+			}
+		} 
+		document.getElementById("iframeee").width = ev_w
+		document.getElementById("iframeee").height = ev_h
+		document.getElementById("iframeee").src   = COTD.video.src;
 
 
 		async function get_dp(s){
@@ -319,12 +330,14 @@
 		}
 			
 		var cur_row = 0
+		var cur_guess = 0
 		let barchart = make_bar(get_chart_data());
 
-		COTD = stats[IDOTD];
+		
 
 		$('#personGuess').on('select2:select', function (e) {
 			cur_row = cur_row + 1
+			cur_guess = cur_guess + 1
 
 			if (cur_row == 1) {
 				$.getJSON("https://api.countapi.xyz/hit/bouldle.xyz/" + IDOTD.toString() , function(response) {
@@ -414,80 +427,15 @@
 			table.rows[cur_row].cells[0].innerHTML = s;
 
 
-
-			//var cur_cell = -1;
-			//for (const f of fields) {
-			//	cur_cell = cur_cell + 1;
-			//	var cell = row.cells[cur_cell];
-			//	var value = guess[f];
-			//	if (typeof value === 'number' && f != "BirthYear") {
-			//		if (value > 0.1) {
-			//			if (value < POTD[f]) {
-			//				cell.innerHTML = ("").concat(fancyTimeFormat(value), "<br />⬆");
-			//			} else if (value > POTD[f] && POTD[f] > 0.1) {
-			//				cell.innerHTML = ("⬇<br />").concat(fancyTimeFormat(value), "");
-			//			} else {
-			//				cell.innerHTML = fancyTimeFormat(value);
-			//			}
-			//			if (POTD[f] > 0.1) {
-			//				if (Math.abs((POTD[f] - value) / value) < 0.01) {
-			//					cell.style.backgroundColor = "#008450";
-			//					cell.style.color = "white";
-			//				} else if (Math.abs((POTD[f] - value) / value) < 0.03) {
-			//					cell.style.backgroundColor = "#EFB700";
-			//					cell.style.color = "white";
-			//				} else {
-			//					cell.style.backgroundColor = "#B81D13";
-			//					cell.style.color = "white";
-			//				}
-			//			}
-			//		}
-			//	} else if (f == "BirthYear") {
-			//		cell.innerHTML = value;
-			//		if (value < POTD[f]) {
-			//			cell.innerHTML = ("").concat(value, "<br />⬆");
-			//		} else if (value > POTD[f]) {
-			//			cell.innerHTML = ("⬇<br />").concat(value, "");
-			//		} else {
-			//			cell.innerHTML = value;
-			//		}
-			//		if (POTD[f] > 0.1) {
-			//			if (Math.abs(POTD[f] - value) < 1) {
-			//				cell.style.backgroundColor = "#008450";
-			//				cell.style.color = "white";
-			//			} else if (Math.abs(POTD[f] - value) < 6) {
-			//				cell.style.backgroundColor = "#EFB700";
-			//				cell.style.color = "white";
-			//			} else {
-			//				cell.style.backgroundColor = "#B81D13";
-			//				cell.style.color = "white";
-			//			}
-			//		}
-			//	} else if (f == "Country" || f == "Name") {
-			//		cell.innerHTML = value;
-			//		if (POTD[f] == value) {
-			//			cell.style.backgroundColor = "#008450";
-			//			cell.style.color = "white";
-			//		}
-			//	} else {
-			//		cell.innerHTML = value;
-			//	}
-			//}
-
 			if (IDOTD == e.params.data.id) {
 				video_container.style.display = "none";
-				//video_container.classList.add("active-animation");
-				//video_mp4.src  = 'vids/' + IDOTD.toString() + '/reveal.mp4';
-				//video_webm.src = 'vids/' + IDOTD.toString() + '/reveal.webm';
-				//video_container.innerHTML  += "It looks like your browser does not support HTML5 video. You can find the reveal <a href=\"https://stridle.xyz/vids/" + IDOTD.toString() + "/reveal.mp4\">here</a>."
-				//video_container.load();
 				document.getElementById("iframeee").classList.add("active-animation");
-				document.getElementById("iframeee").width = COTD.video.width;
-				document.getElementById("iframeee").src   = COTD.video.src;
 				document.getElementById("iframeee").style.visibility = "visible";
 				
+				for (var i = cur_row; i < 12; i++) {
+					table.deleteRow(cur_row+1);
+				}
 
-				winmess.innerHTML = POTD["message"];
 				document.getElementById("whoseLabel").style.display = "none";
 				document.getElementById("outcomeMessage").innerHTML = "That's it, well done!"
 				$("#personGuess").next().hide();
@@ -495,25 +443,23 @@
 				make_confetti();
 				
 				barchart.then(function(chart) {
-					chart.data.datasets[0].data[cur_row-1] = chart.data.datasets[0].data[cur_row-1] + 1
-					chart.data.datasets[0].backgroundColor[cur_row-1] = "#5D3FD3";
+					chart.data.datasets[0].data[cur_guess-1] = chart.data.datasets[0].data[cur_guess-1] + 1
+					chart.data.datasets[0].backgroundColor[cur_guess-1] = "#5D3FD3";
 					chart.update();
 				});
 				
 
-				$.getJSON("https://api.countapi.xyz/hit/bouldle.xyz/" + IDOTD.toString() + "-" + cur_row.toString(), function(response) {
+				$.getJSON("https://api.countapi.xyz/hit/bouldle.xyz/" + IDOTD.toString() + "-" + cur_guess.toString(), function(response) {
 					console.log(response);
 				});
 
-			} else if (cur_row == 6){
-				video_container.classList.add("active-animation");
-				video_mp4.src  = 'vids/' + IDOTD.toString() + '/reveal.mp4';
-				video_webm.src = 'vids/' + IDOTD.toString() + '/reveal.webm';
-				video_container.load();
+			} else if (cur_guess == 6){
+				video_container.style.display = "none";
+				document.getElementById("iframeee").classList.add("active-animation");
+				document.getElementById("iframeee").style.visibility = "visible";
 
 				document.getElementById("hintbutton").style.display = "none";
-				document.getElementById("outcomeMessage").innerHTML = "Not quite. It was " + POTD["Name"] + ". Maybe next time! <br/> "
-				winmess.innerHTML = POTD["message"];
+				document.getElementById("outcomeMessage").innerHTML = "Not quite. It was <a href=" + COTD.URL + " target=\"_blank\">" + COTD["Name"] + "</a>. Maybe next time! <br/> "
 				document.getElementById("whoseLabel").style.display = "none";
 				$("#personGuess").next().hide();
 
