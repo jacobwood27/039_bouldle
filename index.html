@@ -352,9 +352,9 @@
 			row.cells[0].innerHTML = guess.Name;
 
 			if (guess.Rating > COTD.Rating) {
-				row.cells[1].innerHTML = "V" + guess.Rating.toString() + "<br/>" + "↓";
+				row.cells[1].innerHTML = "V" + guess.Rating.toString() + "<br/>" + "⬇️";
 			} else if (guess.Rating < COTD.Rating) {
-				row.cells[1].innerHTML = "V" + guess.Rating.toString() + "<br/>" + "↑";
+				row.cells[1].innerHTML = "V" + guess.Rating.toString() + "<br/>" + "⬆️";
 			} else {
 				row.cells[1].innerHTML = "V" + guess.Rating.toString();
 			}

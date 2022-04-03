@@ -15239,9 +15239,9 @@ const stats = {
         "Lat": 36.1653,
         "Lon": -115.41424,
         "video": {
-            "src": "",
-            "w": "",
-            "h": ""
+            "src": "https://www.youtube.com/watch?v=TfcLIrzU1G0",
+            "w": "560",
+            "h": "315"
         }
     },
     "107387257": {
