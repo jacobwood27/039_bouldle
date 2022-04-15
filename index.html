@@ -215,7 +215,7 @@
 		canvas.width = $("#chartcontainer").width();
 		canvas.height = $("#chartcontainer").height();
 
-		var startDate  = new Date('2022-03-23');
+		var startDate  = new Date('2022-04-13');
 		const today      = new Date();
 		const offset = startDate.getTimezoneOffset();
 		var startmidnight = new Date(startDate.getTime() + offset*60*1000);
@@ -266,23 +266,25 @@
 		video_webm.src = 'vids/' + IDOTD.toString() + '/hidden.webm';
 		video_container.load();
 		
-		var ev_w = COTD.video.w;
-		var ev_h = COTD.video.h;
-
-		if (ev_w > window.innerWidth) {
-			ev_w = window.innerWidth;
-			ev_h = Math.round(COTD.video.h * ev_w / COTD.video.w);
-		} else {
-			ev_h = 400;
-			ev_w = Math.round(COTD.video.w * ev_h / COTD.video.h);
-			if (ev_w > window.innerWidth) {
-				ev_w = window.innerWidth;
-				ev_h = Math.round(COTD.video.h * ev_w / COTD.video.w);
-			}
-		} 
-		document.getElementById("iframeee").width = ev_w
-		document.getElementById("iframeee").height = ev_h
-		document.getElementById("iframeee").src   = COTD.video.src;
+//		var ev_w = COTD.video.w;
+//		var ev_h = COTD.video.h;
+//
+//		if (ev_w > window.innerWidth) {
+//			ev_w = window.innerWidth;
+//			ev_h = Math.round(COTD.video.h * ev_w / COTD.video.w);
+//		} else {
+//			ev_h = 400;
+//			ev_w = Math.round(COTD.video.w * ev_h / COTD.video.h);
+//			if (ev_w > window.innerWidth) {
+//				ev_w = window.innerWidth;
+//				ev_h = Math.round(COTD.video.h * ev_w / COTD.video.w);
+//			}
+//		} 
+//		document.getElementById("iframeee").width = ev_w
+//		document.getElementById("iframeee").height = ev_h
+		document.getElementById("iframeee").width = 560;
+		document.getElementById("iframeee").height = 315;
+		document.getElementById("iframeee").src   = COTD.src;
 
 
 		async function get_dp(s){
