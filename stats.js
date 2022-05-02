@@ -11505,24 +11505,6 @@ const stats = {
         "Lon": -106.0456,
         "src": ""
     },
-    "107082720": {
-        "ID": 107082720,
-        "Rank": 537,
-        "Name": "[Redacted]",
-        "URL": "https://www.mountainproject.com/route/107082720/redacted",
-        "Location": [
-            "California",
-            "San Francisco Bay Area",
-            "Castle Rock Area",
-            " Castle Rock Area Bouldering",
-            "Indian Rock Side",
-            "[Redacted]"
-        ],
-        "Rating": 6,
-        "Lat": 37.23108,
-        "Lon": -122.09482,
-        "src": ""
-    },
     "107094498": {
         "ID": 107094498,
         "Rank": 2,
@@ -12413,24 +12395,6 @@ const stats = {
         "Rating": 6,
         "Lat": 31.913,
         "Lon": -106.038,
-        "src": ""
-    },
-    "107407188": {
-        "ID": 107407188,
-        "Rank": 732,
-        "Name": "[Redacted]",
-        "URL": "https://www.mountainproject.com/route/107407188/redacted",
-        "Location": [
-            "Nevada",
-            "Southern Nevada",
-            "Red Rocks",
-            " Red Rock Bouldering",
-            "Kraft Boulders",
-            "Hot Tub Club"
-        ],
-        "Rating": 6,
-        "Lat": 36.15988,
-        "Lon": -115.41296,
         "src": ""
     },
     "107408757": {
@@ -14121,24 +14085,6 @@ const stats = {
         "Rating": 5,
         "Lat": 37.88065,
         "Lon": -119.39996,
-        "src": ""
-    },
-    "108203239": {
-        "ID": 108203239,
-        "Rank": 890,
-        "Name": "[Redacted]",
-        "URL": "https://www.mountainproject.com/route/108203239/redacted",
-        "Location": [
-            "California",
-            "San Francisco Bay Area",
-            "Castle Rock Area",
-            " Castle Rock Area Bouldering",
-            "Indian Rock Side",
-            "[Redacted]"
-        ],
-        "Rating": 4,
-        "Lat": 37.23108,
-        "Lon": -122.09482,
         "src": ""
     },
     "108233422": {

@@ -223,7 +223,9 @@
 		const diffInMs   = today - startmidnight;
 		const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
 
-		var which_day = Math.floor(diffInDays) % order.length;
+		// var which_day = Math.floor(diffInDays) % order.length;
+		const which_day = 0;
+
 		const last_day = which_day;
 
 		const nextbutton = document.getElementById('NextButton');
@@ -234,6 +236,7 @@
 		const video_webm = document.getElementById('video_webm');
 
 		var table = document.getElementById("ResultsTable");
+		var hint_used = false;
 
 		const urlParams = new URLSearchParams(location.search);
 
@@ -305,13 +308,25 @@
 		}
 	
 		async function get_chart_data(){
-			let d = [	await get_dp("1"), 
-						await get_dp("2"),
-						await get_dp("3"),
-						await get_dp("4"),
-						await get_dp("5"),
-						await get_dp("6"),
-						await get_dp("dnf")]
+			let d = [	[	await get_dp("1"), 
+							await get_dp("2"),
+							await get_dp("3"),
+							await get_dp("4"),
+							await get_dp("5"),
+							await get_dp("6"),
+							await get_dp("dnf")
+						],
+						[
+							await get_dp("1h"), 
+							await get_dp("2h"),
+							await get_dp("3h"),
+							await get_dp("4h"),
+							await get_dp("5h"),
+							await get_dp("6h"),
+							await get_dp("dnfh")
+						]
+					];
+
 			return d;
 		}
 		
@@ -322,6 +337,7 @@
 			video_webm.src = 'vids/' + IDOTD.toString() + '/hint.webm';
 			video_container.load();
 			document.getElementById("hintbutton").style.display = "none";
+			hint_used = true;
 		});
 
 		$("#personGuess").select2();
@@ -330,7 +346,11 @@
 			var newOption = new Option(stats[d]["Name"], stats[d]["ID"], false, false);
 			$('#personGuess').append(newOption).trigger('change');
 		}
-			
+		
+		$('#personGuess').select2({
+    		sorter: data => data.sort((a, b) => a.text.localeCompare(b.text)),
+		});
+
 		var cur_row = 0
 		var cur_guess = 0
 		let barchart = make_bar(get_chart_data());
@@ -374,19 +394,21 @@
 			var dist = Math.round(getDistanceFromLatLonInMi(COTD.Lat,COTD.Lon,guess.Lat,guess.Lon));
 			var brng = getHeadingFromLatLon(guess.Lat,guess.Lon,COTD.Lat,COTD.Lon);
 			arrow = "⬆️"
-			if (brng < 45 + 22.5) {
-				arrow = "↗️"
+			if        (brng < 0 + 22.5) {
+				arrow = "⬆️"
 			} else if (brng < 45 + 22.5) {
-				arrow = "➡️"
+				arrow = "↗️"
 			} else if (brng < 90 + 22.5) {
-				arrow = "↘️"
+				arrow = "➡️"
 			} else if (brng < 135 + 22.5) {
-				arrow = "⬇️"
+				arrow = "↘️"
 			} else if (brng < 180 + 22.5) {
-				arrow = "↙️"
+				arrow = "⬇️"
 			} else if (brng < 225 + 22.5) {
-				arrow = "⬅️"
+				arrow = "↙️"
 			} else if (brng < 270 + 22.5) {
+				arrow = "⬅️"
+			} else if (brng < 315 + 22.5) {
 				arrow = "↖️"
 			} 
 
@@ -445,15 +467,26 @@
 				make_confetti();
 				
 				barchart.then(function(chart) {
-					chart.data.datasets[0].data[cur_guess-1] = chart.data.datasets[0].data[cur_guess-1] + 1
-					chart.data.datasets[0].backgroundColor[cur_guess-1] = "#5D3FD3";
+					if (hint_used) {
+						chart.data.datasets[1].data[cur_guess-1] = chart.data.datasets[1].data[cur_guess-1] + 1
+						chart.data.datasets[1].backgroundColor[cur_guess-1] = "#5D3FD3";
+					} else {
+						chart.data.datasets[0].data[cur_guess-1] = chart.data.datasets[0].data[cur_guess-1] + 1
+						chart.data.datasets[0].backgroundColor[cur_guess-1] = "#5D3FD3";
+					}
 					chart.update();
 				});
 				
+				if (hint_used) {
+					$.getJSON("https://api.countapi.xyz/hit/bouldle.xyz/" + IDOTD.toString() + "-" + cur_guess.toString() + "h", function(response) {
+						console.log(response);
+					});
+				} else {
+					$.getJSON("https://api.countapi.xyz/hit/bouldle.xyz/" + IDOTD.toString() + "-" + cur_guess.toString(), function(response) {
+						console.log(response);
+					});
+				}
 
-				$.getJSON("https://api.countapi.xyz/hit/bouldle.xyz/" + IDOTD.toString() + "-" + cur_guess.toString(), function(response) {
-					console.log(response);
-				});
 
 			} else if (cur_guess == 6){
 				video_container.style.display = "none";
@@ -466,14 +499,26 @@
 				$("#personGuess").next().hide();
 
 				barchart.then(function(chart) {
-					chart.data.datasets[0].data[6] = chart.data.datasets[0].data[6] + 1
-					chart.data.datasets[0].backgroundColor[6] = "#5D3FD3";
+					if (hint_used) {
+						chart.data.datasets[1].data[6] = chart.data.datasets[1].data[6] + 1
+						chart.data.datasets[1].backgroundColor[6] = "#5D3FD3";
+					} else {
+						chart.data.datasets[0].data[6] = chart.data.datasets[0].data[6] + 1
+						chart.data.datasets[0].backgroundColor[6] = "#5D3FD3";
+					}
 					chart.update();
 				});
 
-				$.getJSON("https://api.countapi.xyz/hit/bouldle.xyz/" + IDOTD.toString() + "-dnf", function(response) {
-					console.log(response);
-				});
+				if (hint_used) {
+					$.getJSON("https://api.countapi.xyz/hit/bouldle.xyz/" + IDOTD.toString() + "-dnfh", function(response) {
+						console.log(response);
+					});
+				} else {
+					$.getJSON("https://api.countapi.xyz/hit/bouldle.xyz/" + IDOTD.toString() + "-dnf", function(response) {
+						console.log(response);
+					});
+				}
+
 			} 
 
 			//$("#personGuess").val('').trigger('change');
@@ -688,18 +733,18 @@ async function make_bar(dat){
 	const labels = ["1","2","3","4","5","6","DNF"];
 	const data = {
 		labels: labels,
-		datasets: [{
-			data: d,
-			backgroundColor: [
-				'#A9A9A9',
-				'#A9A9A9',
-				'#A9A9A9',
-				'#A9A9A9',
-				'#A9A9A9',
-				'#A9A9A9',
-				'#A9A9A9'
-			],
-		}]
+		datasets: [
+			{
+				data: d[0],
+				backgroundColor: '#A9A9A9',
+				label: "No Hint"
+			},
+			{
+				data: d[1],
+				backgroundColor: '#303030',
+				label: "Hint"
+			}
+		]
 	};
 	const config = {
 		type: 'bar',
