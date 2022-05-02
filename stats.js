@@ -3791,7 +3791,7 @@ const stats = {
         "Rating": 4,
         "Lat": 34.65398,
         "Lon": -85.39029,
-        "src": "https://www.youtube.com/watch?v=W3KpXvInGgI"
+        "src": "https://www.youtube.com/embed/W3KpXvInGgI"
     },
     "106036681": {
         "ID": 106036681,
@@ -5781,7 +5781,7 @@ const stats = {
         "Rating": 5,
         "Lat": 40.30479,
         "Lon": -105.66069,
-        "src": "https://www.youtube.com/watch?v=LfUeDMUt8iw"
+        "src": "https://www.youtube.com/embed/LfUeDMUt8iw"
     },
     "106257778": {
         "ID": 106257778,
@@ -7140,7 +7140,7 @@ const stats = {
         "Rating": 7,
         "Lat": 40.30479,
         "Lon": -105.66069,
-        "src": "https://www.youtube.com/watch?v=AGfvZyj6Nps"
+        "src": "https://www.youtube.com/embed/AGfvZyj6Nps"
     },
     "106390943": {
         "ID": 106390943,
@@ -8374,7 +8374,7 @@ const stats = {
         "Rating": 5,
         "Lat": 47.65635,
         "Lon": -120.72949,
-        "src": "https://www.youtube.com/watch?v=NhvoSs6_3-c"
+        "src": "https://www.youtube.com/embed/NhvoSs6_3-c"
     },
     "106554779": {
         "ID": 106554779,
@@ -12364,7 +12364,7 @@ const stats = {
         "Rating": 7,
         "Lat": 36.1653,
         "Lon": -115.41424,
-        "src": "https://www.youtube.com/watch?v=TfcLIrzU1G0"
+        "src": "https://www.youtube.com/embed/TfcLIrzU1G0"
     },
     "107387257": {
         "ID": 107387257,
@@ -13161,7 +13161,7 @@ const stats = {
         "Rating": 9,
         "Lat": 37.06753,
         "Lon": -113.63276,
-        "src": "https://www.youtube.com/watch?v=nOjCy5zIaZE"
+        "src": "https://www.youtube.com/embed/nOjCy5zIaZE"
     },
     "107898134": {
         "ID": 107898134,
@@ -14208,7 +14208,7 @@ const stats = {
         "Rating": 5,
         "Lat": 37.61583,
         "Lon": -89.41048,
-        "src": "https://www.youtube.com/watch?v=1sxiIDmrrtg"
+        "src": "https://www.youtube.com/embed/1sxiIDmrrtg"
     },
     "108312247": {
         "ID": 108312247,
