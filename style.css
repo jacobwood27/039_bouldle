@@ -1,16 +1,44 @@
+body {
+  overflow-x:hidden;
+}
+
 .content-wrapper {
   margin-right: auto;
   margin-left: auto;
   max-width: 800px;
 }
 
-img {
+@media (min-width: 640px) {
+  .vid_placeholder {
+    text-align:center; 
+    position:relative;
+    display: flex; 
+    width:100%; 
+    height:360px; 
+    flex: 1 1 auto;
+  }
+}
+@media (max-width: 639px) {
+  .vid_placeholder {
+    text-align:center; 
+    position:relative;
+    display: flex; 
+    width:100%; 
+    height:56.25vw; 
+    flex: 1 1 auto;
+  }
+}
+
+
+
+
+/* img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-}
+} */
 
-.active-animation {
+/* .active-animation {
   animation-name: fadeIn ;
   animation-duration: 2s;
   animation-fill-mode: forwards;
@@ -19,18 +47,31 @@ img {
 @keyframes fadeIn {
   0% {filter:opacity(0%);}
   100% {filter:opacity(100%);}
-}
+} */
 
 .collapsible {
   cursor: pointer;
   text-align: center;
   z-index: 5;
+  background-color: #5c5c5c; /* Green */
+  border: none;
+  color: white;
+  width: 70px;
+  height: 35px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
   
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.collapsible:hover {
+  background-color: #cccccc;
+  color: black;
+}
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover)
 .active, .collapsible:hover {
   text-align: center;
-}
+} */
 
 .content {
   padding: 18px;
@@ -83,3 +124,4 @@ canvas {
   width: 100%;
   z-index: 2;
 }
+
