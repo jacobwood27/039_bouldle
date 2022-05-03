@@ -28,7 +28,7 @@
 	<div class="content-wrapper">
 		<div class="vid_placeholder">
 			<div style="height:100%; width:100%;;"></div>
-			<iframe id="iframeee" width="400" height="400" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="visibility:hidden; position:absolute; top:0; left:50%; transform: translate(-50%, 0%);"></iframe>
+			<iframe id="iframeee" width="640" height="360" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="visibility:hidden; position:absolute; top:0; left:50%; transform: translate(-50%, 0%);"></iframe>
 
 			<video height="100%" width=vh playsinline loop muted autoplay controls id="video_container" style="position:absolute; top:0; left:50%; transform: translate(-50%, 0%); z-index:1">
 				<source type="video/webm; codecs=vp9,vorbis" id="video_webm">
@@ -285,8 +285,8 @@
 //		} 
 //		document.getElementById("iframeee").width = ev_w
 //		document.getElementById("iframeee").height = ev_h
-		document.getElementById("iframeee").width = 560;
-		document.getElementById("iframeee").height = 315;
+		// document.getElementById("iframeee").width = 560;
+		// document.getElementById("iframeee").height = 315;
 		document.getElementById("iframeee").src   = COTD.src;
 
 
