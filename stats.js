@@ -69,7 +69,7 @@ const stats = {
         "Rating": 2,
         "Lat": 34.02073,
         "Lon": -116.16212,
-        "src": ""
+        "src": "https://www.youtube.com/embed/JJjeFEkcWpc"
     },
     "105722608": {
         "ID": 105722608,
@@ -89,7 +89,7 @@ const stats = {
         "Rating": 4,
         "Lat": 34.01716,
         "Lon": -116.16368,
-        "src": ""
+        "src": "https://www.youtube.com/embed/edEi62i29_g"
     },
     "105722755": {
         "ID": 105722755,
@@ -1370,7 +1370,7 @@ const stats = {
         "Rating": 7,
         "Lat": 31.9217,
         "Lon": -106.0456,
-        "src": ""
+        "src": "https://www.youtube.com/embed/OSObhn1PIQ8"
     },
     "105811638": {
         "ID": 105811638,
@@ -2014,7 +2014,7 @@ const stats = {
         "Rating": 6,
         "Lat": 39.27864,
         "Lon": -111.22785,
-        "src": ""
+        "src": "https://www.youtube.com/embed/3ydP-VHvEHg"
     },
     "105880771": {
         "ID": 105880771,
@@ -2342,7 +2342,7 @@ const stats = {
         "Rating": 9,
         "Lat": 37.32868,
         "Lon": -118.57635,
-        "src": ""
+        "src": "https://www.youtube.com/embed/bkAWiw-rGDk"
     },
     "105908399": {
         "ID": 105908399,
@@ -3091,7 +3091,7 @@ const stats = {
         "Rating": 6,
         "Lat": 37.41747,
         "Lon": -118.45136,
-        "src": ""
+        "src": "https://www.youtube.com/embed/kgLBzyKHhyY"
     },
     "105988465": {
         "ID": 105988465,
@@ -5781,7 +5781,7 @@ const stats = {
         "Rating": 5,
         "Lat": 40.30479,
         "Lon": -105.66069,
-        "src": "https://www.youtube.com/embed/LfUeDMUt8iw"
+        "src": "https://www.youtube.com/embed/B-zGe1q2lsE"
     },
     "106257778": {
         "ID": 106257778,
@@ -6734,7 +6734,7 @@ const stats = {
         "Rating": 6,
         "Lat": 34.6591,
         "Lon": -85.3899,
-        "src": ""
+        "src": "https://www.youtube.com/embed/LGmb3lB-Mz4"
     },
     "106340969": {
         "ID": 106340969,
@@ -7140,7 +7140,7 @@ const stats = {
         "Rating": 7,
         "Lat": 40.30479,
         "Lon": -105.66069,
-        "src": "https://www.youtube.com/embed/AGfvZyj6Nps"
+        "src": "https://www.youtube.com/embed/N7HIh1CPTl8"
     },
     "106390943": {
         "ID": 106390943,
@@ -7343,7 +7343,7 @@ const stats = {
         "Rating": 5,
         "Lat": 34.65121,
         "Lon": -85.39099,
-        "src": ""
+        "src": "https://www.youtube.com/embed/fvKD_pBtP9Q"
     },
     "106410557": {
         "ID": 106410557,
@@ -7505,7 +7505,7 @@ const stats = {
         "Rating": 0,
         "Lat": 31.92213,
         "Lon": -106.04852,
-        "src": ""
+        "src": "https://www.youtube.com/embed/vLoOqL8kO_A"
     },
     "106432787": {
         "ID": 106432787,
@@ -8374,7 +8374,7 @@ const stats = {
         "Rating": 5,
         "Lat": 47.65635,
         "Lon": -120.72949,
-        "src": "https://www.youtube.com/embed/NhvoSs6_3-c"
+        "src": "https://www.youtube.com/embed/apk8dqr2m4w"
     },
     "106554779": {
         "ID": 106554779,
@@ -10726,7 +10726,7 @@ const stats = {
         "Rating": 6,
         "Lat": 36.15988,
         "Lon": -115.41296,
-        "src": ""
+        "src": "https://www.youtube.com/embed/3GfMGrWbGpc"
     },
     "106967927": {
         "ID": 106967927,
@@ -11045,7 +11045,7 @@ const stats = {
         "Rating": 6,
         "Lat": 37.06962,
         "Lon": -113.62769,
-        "src": ""
+        "src": "https://www.youtube.com/embed/D3qde4gYwH8"
     },
     "107023720": {
         "ID": 107023720,
@@ -11283,7 +11283,7 @@ const stats = {
         "Rating": 1,
         "Lat": 35.24899,
         "Lon": -85.22003,
-        "src": ""
+        "src": "https://www.youtube.com/embed/NNyrpgi1xHE"
     },
     "107046888": {
         "ID": 107046888,
@@ -15308,7 +15308,7 @@ const stats = {
         "Rating": 0,
         "Lat": 37.50632,
         "Lon": -88.68419,
-        "src": ""
+        "src": "https://www.youtube.com/embed/HD6j9jdt_J4"
     },
     "109947810": {
         "ID": 109947810,
@@ -16388,7 +16388,7 @@ const stats = {
         "Rating": 4,
         "Lat": 39.2719,
         "Lon": -111.19439,
-        "src": ""
+        "src": "https://www.youtube.com/embed/EVGIAU8VVv4"
     },
     "113802237": {
         "ID": 113802237,
