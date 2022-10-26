@@ -468,7 +468,7 @@
 				document.getElementById("iframeee").classList.add("active-animation");
 				document.getElementById("iframeee").style.visibility = "visible";
 				
-				for (var i = cur_row; i < 12; i++) {
+				for (var i = cur_row; i < 6; i++) {
 					table.deleteRow(cur_row+1);
 				}
 
@@ -762,9 +762,17 @@ async function make_bar(dat){
 		datasets: [{
 			label: 'My First Dataset',
 			data: d,
-			backgroundColor: 'rgba(201, 203, 207, 0.9)',
+			backgroundColor: [
+				'#808080',
+				'#808080',
+				'#808080',
+				'#808080',
+				'#808080',
+				'#808080',
+				'#808080'
+		],
 			borderColor: 'rgb(0, 0, 0)',
-			borderWidth: 2
+			borderWidth: 1
 		}]
 
 	};
