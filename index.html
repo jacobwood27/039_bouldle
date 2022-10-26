@@ -38,7 +38,7 @@
 
 		</div>
 		<div style="text-align:center; margin:5px">
-			<label ID="whoseLabel">What climb is this?</label>
+			<label ID="whoseLabel"><b>What climb is this?</b></label>
 		</div>
 		<div style="text-align:center; width:300px; margin: 0 auto;">
 			<form style=" margin: 5px auto;">
@@ -47,7 +47,7 @@
 				</select>
 			</form>
 			<button type="button" class="collapsible" id="PrevButton" style="float: left; visibility: hidden;">Prev</button>
-			<button type="button" id="hintbutton" class="collapsible">Hint</button>
+			<!-- <button type="button" id="hintbutton" class="collapsible">Hint</button> -->
 			<button type="button" id="collapsible" class="collapsible" style="text-align:center;">Info</button>
 			<div class="content" ;
 			style="z-index:10; text-align:center; top:5px; left:50%; transform: translate(-50%, 0%);" onclick="togglecollapse()">
@@ -55,8 +55,8 @@
 				<p style="margin-bottom: 2px; font-weight:bold; margin-top: 0px">How to Play</p>
 				<p style="margin-bottom: 2px; margin-top: 2px;">You have 6 guesses to identify the mystery climb
 				</p>
-				<p style="margin-bottom: 2px; margin-top: 2px;">Use a hint to show the climber in context
-				</p>
+				<!-- <p style="margin-bottom: 2px; margin-top: 2px;">Use a hint to show the climber in context
+				</p> -->
 				<p style="margin-bottom: 2px; margin-top: 2px;">There is a new puzzle every day
 				</p>
 			</div>
@@ -102,60 +102,60 @@
 			<table id="ResultsTable" style="text-align:center; width:100%; margin:5px; font-weight:bold;">
 				<thead>
 					<tr>
-						<th>Name</th>
-						<th>Rating</th>
-						<th>Distance Away</th>
+						<th style="width:50%">Name</th>
+						<th style="width:25%">Rating</th>
+						<th style="width:25%">Distance Away</th>
 					</tr>
 				</thead>
 				<tbody class="trows">
-					<tr style="border-top:10px solid #ffffff; border-bottom:0px solid #ffffff;">
+					<tr style="border-top:1px solid #ffffff; border-bottom:0px solid #ffffff; height:50px;">
 					  <td></td>
 					  <td></td>
 					  <td></td>
 					</tr>
-					<tr style="border-top:0px solid #ffffff;height:20px;">
+					<!-- <tr style="border-top:0px solid #ffffff;height:20px;">
 						<td colspan="3" style="font-weight:normal;"></td>
-					</tr>
-					<tr style="border-top:10px solid #ffffff; border-bottom:0px solid #ffffff;">
+					</tr> -->
+					<tr style="border-top:1px solid #ffffff; border-bottom:0px solid #ffffff; height:50px;">
 						<td></td>
 						<td></td>
 						<td></td>
 					  </tr>
-					  <tr style="border-top:0px solid #ffffff;height:20px;">
+					  <!-- <tr style="border-top:0px solid #ffffff;height:20px;">
 						  <td colspan="3" style="font-weight:normal;"></td>
-					  </tr>
-					  <tr style="border-top:10px solid #ffffff; border-bottom:0px solid #ffffff;">
+					  </tr> -->
+					  <tr style="border-top:1px solid #ffffff; border-bottom:0px solid #ffffff; height:50px;">
 						<td></td>
 						<td></td>
 						<td></td>
 					  </tr>
-					  <tr style="border-top:0px solid #ffffff;height:20px;">
+					  <!-- <tr style="border-top:0px solid #ffffff;height:20px;">
 						  <td colspan="3" style="font-weight:normal;"></td>
-					  </tr>
-					  <tr style="border-top:10px solid #ffffff; border-bottom:0px solid #ffffff;">
+					  </tr> -->
+					  <tr style="border-top:1px solid #ffffff; border-bottom:0px solid #ffffff; height:50px;">
 						<td></td>
 						<td></td>
 						<td></td>
 					  </tr>
-					  <tr style="border-top:0px solid #ffffff;height:20px;">
+					  <!-- <tr style="border-top:0px solid #ffffff;height:20px;">
 						  <td colspan="3" style="font-weight:normal;"></td>
-					  </tr>
-					  <tr style="border-top:10px solid #ffffff; border-bottom:0px solid #ffffff;">
+					  </tr> -->
+					  <tr style="border-top:1px solid #ffffff; border-bottom:0px solid #ffffff; height:50px;">
 						<td></td>
 						<td></td>
 						<td></td>
 					  </tr>
-					  <tr style="border-top:0px solid #ffffff;height:20px;">
+					  <!-- <tr style="border-top:0px solid #ffffff;height:20px;">
 						  <td colspan="3" style="font-weight:normal;"></td>
-					  </tr>
-					  <tr style="border-top:10px solid #ffffff; border-bottom:0px solid #ffffff;">
+					  </tr> -->
+					  <tr style="border-top:1px solid #ffffff; border-bottom:0px solid #ffffff; height:50px;">
 						<td></td>
 						<td></td>
 						<td></td>
 					  </tr>
-					  <tr style="border-top:0px solid #ffffff;height:20px;">
+					  <!-- <tr style="border-top:0px solid #ffffff;height:20px;">
 						  <td colspan="3" style="font-weight:normal;"></td>
-					  </tr>
+					  </tr> -->
 				  </tbody>
 			</table>
 		</div>
@@ -236,7 +236,7 @@
 		const video_webm = document.getElementById('video_webm');
 
 		var table = document.getElementById("ResultsTable");
-		var hint_used = false;
+		// var hint_used = false;
 
 		const urlParams = new URLSearchParams(location.search);
 
@@ -307,38 +307,50 @@
 			});
 		}
 	
+		// async function get_chart_data(){
+		// 	let d = [	[	await get_dp("1"), 
+		// 					await get_dp("2"),
+		// 					await get_dp("3"),
+		// 					await get_dp("4"),
+		// 					await get_dp("5"),
+		// 					await get_dp("6"),
+		// 					await get_dp("dnf")
+		// 				],
+		// 				[
+		// 					await get_dp("1h"), 
+		// 					await get_dp("2h"),
+		// 					await get_dp("3h"),
+		// 					await get_dp("4h"),
+		// 					await get_dp("5h"),
+		// 					await get_dp("6h"),
+		// 					await get_dp("dnfh")
+		// 				]
+		// 			];
+
+		// 	return d;
+		// }
 		async function get_chart_data(){
-			let d = [	[	await get_dp("1"), 
-							await get_dp("2"),
-							await get_dp("3"),
-							await get_dp("4"),
-							await get_dp("5"),
-							await get_dp("6"),
-							await get_dp("dnf")
-						],
-						[
-							await get_dp("1h"), 
-							await get_dp("2h"),
-							await get_dp("3h"),
-							await get_dp("4h"),
-							await get_dp("5h"),
-							await get_dp("6h"),
-							await get_dp("dnfh")
-						]
+			let d = [	await get_dp("1"), 
+						await get_dp("2"),
+						await get_dp("3"),
+						await get_dp("4"),
+						await get_dp("5"),
+						await get_dp("6"),
+						await get_dp("dnf")
 					];
 
 			return d;
 		}
 		
 
-		$('#hintbutton').on('click', function () {
-			video_container.classList.add("active-animation");
-			video_mp4.src  = 'vids/' + IDOTD.toString() + '/hint.mp4';
-			video_webm.src = 'vids/' + IDOTD.toString() + '/hint.webm';
-			video_container.load();
-			document.getElementById("hintbutton").style.display = "none";
-			hint_used = true;
-		});
+		// $('#hintbutton').on('click', function () {
+		// 	video_container.classList.add("active-animation");
+		// 	video_mp4.src  = 'vids/' + IDOTD.toString() + '/hint.mp4';
+		// 	video_webm.src = 'vids/' + IDOTD.toString() + '/hint.webm';
+		// 	video_container.load();
+		// 	document.getElementById("hintbutton").style.display = "none";
+		// 	hint_used = true;
+		// });
 
 		$("#personGuess").select2();
 
@@ -434,21 +446,21 @@
 				row.cells[0].style.color = "white";
 			}
 
-			cur_row = cur_row + 1
-			row = table.rows[cur_row];//insertRow();
-			var s = "";
-			var count = 0
-			for (const l of guess.Location) {
-				if (count<COTD.Location.length && l==COTD.Location[count]) {
-					s += "<span style=\"color: #008450\">" + l + "</span>";
-				} else {
-					s += "<span style=\"color: #B81D13\">" + l + "</span>";
-				}
-				s += " > "
-				count += 1
-			} 
-			s = s.slice(0, -3);
-			table.rows[cur_row].cells[0].innerHTML = s;
+			// cur_row = cur_row + 1
+			// row = table.rows[cur_row];//insertRow();
+			// var s = "";
+			// var count = 0
+			// for (const l of guess.Location) {
+			// 	if (count<COTD.Location.length && l==COTD.Location[count]) {
+			// 		s += "<span style=\"color: #008450\">" + l + "</span>";
+			// 	} else {
+			// 		s += "<span style=\"color: #B81D13\">" + l + "</span>";
+			// 	}
+			// 	s += " > "
+			// 	count += 1
+			// } 
+			// s = s.slice(0, -3);
+			// // table.rows[cur_row].cells[0].innerHTML = s;
 
 
 			if (IDOTD == e.params.data.id) {
@@ -463,29 +475,37 @@
 				document.getElementById("whoseLabel").style.display = "none";
 				document.getElementById("outcomeMessage").innerHTML = "That's it, well done!"
 				$("#personGuess").next().hide();
-				document.getElementById("hintbutton").style.display = "none";
+				// document.getElementById("hintbutton").style.display = "none";
 				make_confetti();
 				
 				barchart.then(function(chart) {
-					if (hint_used) {
-						chart.data.datasets[1].data[cur_guess-1] = chart.data.datasets[1].data[cur_guess-1] + 1
-						chart.data.datasets[1].backgroundColor[cur_guess-1] = "#5D3FD3";
-					} else {
-						chart.data.datasets[0].data[cur_guess-1] = chart.data.datasets[0].data[cur_guess-1] + 1
-						chart.data.datasets[0].backgroundColor[cur_guess-1] = "#5D3FD3";
-					}
+					// if (hint_used) {
+					// 	chart.data.datasets[1].data[cur_guess-1] = chart.data.datasets[1].data[cur_guess-1] + 1
+					// 	chart.data.datasets[1].backgroundColor[cur_guess-1] = "#5D3FD3";
+					// } else {
+					// 	chart.data.datasets[0].data[cur_guess-1] = chart.data.datasets[0].data[cur_guess-1] + 1
+					// 	chart.data.datasets[0].backgroundColor[cur_guess-1] = "#5D3FD3";
+					// }
+
+					chart.data.datasets[0].data[cur_guess-1] = chart.data.datasets[0].data[cur_guess-1] + 1
+					chart.data.datasets[0].backgroundColor[cur_guess-1] = "#5D3FD3";
+
 					chart.update();
 				});
 				
-				if (hint_used) {
-					$.getJSON("https://api.countapi.xyz/hit/bouldle.xyz/" + IDOTD.toString() + "-" + cur_guess.toString() + "h", function(response) {
-						console.log(response);
-					});
-				} else {
-					$.getJSON("https://api.countapi.xyz/hit/bouldle.xyz/" + IDOTD.toString() + "-" + cur_guess.toString(), function(response) {
-						console.log(response);
-					});
-				}
+				// if (hint_used) {
+				// 	$.getJSON("https://api.countapi.xyz/hit/bouldle.xyz/" + IDOTD.toString() + "-" + cur_guess.toString() + "h", function(response) {
+				// 		console.log(response);
+				// 	});
+				// } else {
+				// 	$.getJSON("https://api.countapi.xyz/hit/bouldle.xyz/" + IDOTD.toString() + "-" + cur_guess.toString(), function(response) {
+				// 		console.log(response);
+				// 	});
+				// }\
+
+				$.getJSON("https://api.countapi.xyz/hit/bouldle.xyz/" + IDOTD.toString() + "-" + cur_guess.toString(), function(response) {
+					console.log(response);
+				});
 
 
 			} else if (cur_guess == 6){
@@ -493,31 +513,37 @@
 				document.getElementById("iframeee").classList.add("active-animation");
 				document.getElementById("iframeee").style.visibility = "visible";
 
-				document.getElementById("hintbutton").style.display = "none";
+				// document.getElementById("hintbutton").style.display = "none";
 				document.getElementById("outcomeMessage").innerHTML = "Not quite. It was <a href=" + COTD.URL + " target=\"_blank\">" + COTD["Name"] + "</a>. Maybe next time! <br/> "
 				document.getElementById("whoseLabel").style.display = "none";
 				$("#personGuess").next().hide();
 
 				barchart.then(function(chart) {
-					if (hint_used) {
-						chart.data.datasets[1].data[6] = chart.data.datasets[1].data[6] + 1
-						chart.data.datasets[1].backgroundColor[6] = "#5D3FD3";
-					} else {
-						chart.data.datasets[0].data[6] = chart.data.datasets[0].data[6] + 1
-						chart.data.datasets[0].backgroundColor[6] = "#5D3FD3";
-					}
+					// if (hint_used) {
+					// 	chart.data.datasets[1].data[6] = chart.data.datasets[1].data[6] + 1
+					// 	chart.data.datasets[1].backgroundColor[6] = "#5D3FD3";
+					// } else {
+					// 	chart.data.datasets[0].data[6] = chart.data.datasets[0].data[6] + 1
+					// 	chart.data.datasets[0].backgroundColor[6] = "#5D3FD3";
+					// }
+
+					chart.data.datasets[0].data[6] = chart.data.datasets[0].data[6] + 1
+					chart.data.datasets[0].backgroundColor[6] = "#5D3FD3";
 					chart.update();
 				});
 
-				if (hint_used) {
-					$.getJSON("https://api.countapi.xyz/hit/bouldle.xyz/" + IDOTD.toString() + "-dnfh", function(response) {
-						console.log(response);
-					});
-				} else {
-					$.getJSON("https://api.countapi.xyz/hit/bouldle.xyz/" + IDOTD.toString() + "-dnf", function(response) {
-						console.log(response);
-					});
-				}
+				// if (hint_used) {
+				// 	$.getJSON("https://api.countapi.xyz/hit/bouldle.xyz/" + IDOTD.toString() + "-dnfh", function(response) {
+				// 		console.log(response);
+				// 	});
+				// } else {
+				// 	$.getJSON("https://api.countapi.xyz/hit/bouldle.xyz/" + IDOTD.toString() + "-dnf", function(response) {
+				// 		console.log(response);
+				// 	});
+				// }
+				$.getJSON("https://api.countapi.xyz/hit/bouldle.xyz/" + IDOTD.toString() + "-dnf", function(response) {
+					console.log(response);
+				});
 
 			} 
 
@@ -730,39 +756,17 @@
 
 async function make_bar(dat){
 	d = await(dat)
-	const labels = ["1","2","3","4","5","6","DNF"];
+	console.log(d)
 	const data = {
-		labels: labels,
-		datasets: [
-			{
-				data: d[0],
-				backgroundColor: 
-					[
-						'#303030',
-						'#303030',
-						'#303030',
-						'#303030',
-						'#303030',
-						'#303030',
-						'#303030',
-					],
-				label: "No Hint"
-			},
-			{
-				data: d[1],
-				backgroundColor: 
-					[
-						'#A9A9A9',
-						'#A9A9A9',
-						'#A9A9A9',
-						'#A9A9A9',
-						'#A9A9A9',
-						'#A9A9A9',
-						'#A9A9A9',
-					],
-				label: "Hint"
-			}
-		]
+		labels: ["1","2","3","4","5","6","DNF"],
+		datasets: [{
+			label: 'My First Dataset',
+			data: d,
+			backgroundColor: 'rgba(201, 203, 207, 0.9)',
+			borderColor: 'rgb(0, 0, 0)',
+			borderWidth: 2
+		}]
+
 	};
 	const config = {
 		type: 'bar',
@@ -789,7 +793,7 @@ async function make_bar(dat){
 			},
 			plugins: {
 				legend: {
-					display: true,
+					display: false,
 				},
 				title: {
 					display: true,
